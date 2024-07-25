@@ -1,9 +1,62 @@
 <?php
 include("includes/header.php");
-include("create_task.php");
 include("db_connection.php");
 ?>
 
+<!-- <div class="section__content section__content--p30">
+        <div class="container-fluid">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">Credit Card</div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3 class="text-center title-2">Pay Invoice</h3>
+                            </div>
+                            <hr />
+                            <form action="" method="post" novalidate="novalidate">
+                                <div class="form-group">
+                                    <label for="cc-payment" class="control-label mb-1">Payment amount</label>
+                                    <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00" />
+                                </div>
+                                <div class="form-group has-success">
+                                    <label for="cc-name" class="control-label mb-1">Name on card</label>
+                                    <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" />
+                                    <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-number" class="control-label mb-1">Card number</label>
+                                    <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number" />
+                                    <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="MM / YY" autocomplete="cc-exp" />
+                                            <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="x_card_code" class="control-label mb-1">Security code</label>
+                                        <div class="input-group">
+                                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" autocomplete="off" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                        <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                        <span id="payment-button-amount">Pay $100.00</span>
+                                        <span id="payment-button-sending" style="display: none">Sending…</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 
 
@@ -11,92 +64,84 @@ include("db_connection.php");
 
     <div class="main-content">
 
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="col-lg-15">
+                    <div class="card">
+                        <div class="card-header">add product</div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h3 class="text-center title-2">product information</h3>
+                            </div>
+                            <form action="add_product.php" method="post" novalidate="novalidate">
+                                <div class="form-group">
+                                    <input id="cc-pament" name="id" type="hidden" class="form-control" aria-required="true" aria-invalid="false" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-payment" class="control-label mb-1">product name</label>
+                                    <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" />
+                                </div>
+                                <div class="form-group has-success">
+                                    <label for="cc-name" class="control-label mb-1">product description</label>
+                                    <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error" />
+                                    <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-number" class="control-label mb-1">product price</label>
+                                    <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number" />
+                                    <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                                </div>
 
-        <table class="table table-borderless table-data3">
-            <thead>
-                <tr>
-                    <th>date</th>
-                    <th>type</th>
-                    <th>description</th>
-                    <th>status</th>
-                    <th>price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2018-09-29 05:57</td>
-                    <td>Mobile</td>
-                    <td>iPhone X 64Gb Grey</td>
-                    <td class="process">Processed</td>
-                    <td>$999.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-28 01:22</td>
-                    <td>Mobile</td>
-                    <td>Samsung S8 Black</td>
-                    <td class="process">Processed</td>
-                    <td>$756.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-27 02:12</td>
-                    <td>Game</td>
-                    <td>Game Console Controller</td>
-                    <td class="denied">Denied</td>
-                    <td>$22.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-26 23:06</td>
-                    <td>Mobile</td>
-                    <td>iPhone X 256Gb Black</td>
-                    <td class="denied">Denied</td>
-                    <td>$1199.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-25 19:03</td>
-                    <td>Accessories</td>
-                    <td>USB 3.0 Cable</td>
-                    <td class="process">Processed</td>
-                    <td>$10.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-29 05:57</td>
-                    <td>Accesories</td>
-                    <td>Smartwatch 4.0 LTE Wifi</td>
-                    <td class="denied">Denied</td>
-                    <td>$199.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-24 19:10</td>
-                    <td>Camera</td>
-                    <td>Camera C430W 4k</td>
-                    <td class="process">Processed</td>
-                    <td>$699.00</td>
-                </tr>
-                <tr>
-                    <td>2018-09-22 00:43</td>
-                    <td>Computer</td>
-                    <td>Macbook Pro Retina 2017</td>
-                    <td class="process">Processed</td>
-                    <td>$10.00</td>
-                </tr>
-            </tbody>
-        </table>
+                                <div>
+                                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                        <span id="payment-button-amount">submit</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="row m-t-80">
+                <div class="col-md-9.9">
+                  <div class="table-responsive m-b-40">
+    <table class="table table-borderless table-data3">
+        <thead>
+                <th>product id</th>
+                <th>product name</th>
+                <th>product description</th>
+                <th>status</th>
+                <th>price</th>
+                <th>price</th>
+                <th>price</th>
+        </thead>
+    <?php
+    $result = $conn->query("SELECT * FROM product");
+    $counter = 0;
+    while ($row = $result->fetch_assoc()) {
+        $counter++;
+        echo "
+        <tr>
+                
+                    <td>{$row['product_id']}</td>
+                    <td>{$row['product_name']}</td>
+                    <td>{$row['product_description']}</td>
+                    <td>{$row['product_rating']}</td>
+                    <td>{$row['product_price']}</td>
+                    <td>{$row['stock']}</td>
+                    <td>
+                        <a class='edit' href='edit_product.php?id={$row['product_id']}'>Edit</a>
+                        <a class='delete' href='delete_product.php?id={$row['product_id']}'>Delete</a>
+                    </td>
+                </tr>";
+    }
+    ?>
+    </table>
+    <?php
+    include("includes/footer.php");
+    ?>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
-include("includes/footer.php");
-?>
+</div>
